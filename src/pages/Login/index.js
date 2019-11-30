@@ -1,6 +1,6 @@
 import React from 'react';
-import TextFields from '../../components/TextFields/';
-import Button from '../../components/Button/';
+import TextFields from '../../Components/TextFields/';
+import Button from '../../Components/Button/';
 import { Navbar } from 'react-bootstrap';
 
 const style = {
