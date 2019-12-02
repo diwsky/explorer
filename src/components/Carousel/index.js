@@ -8,11 +8,17 @@ class index extends Component {
   render() {
     const styleImg = {
       width: '50%',
-      flex: 1, 
+      flex: 1,
+      height: '400px',
     };
+
     return (
       <div>
-        <Carousel>
+        <Carousel
+          style={{
+            height: '400px',
+          }}
+        >
           <Carousel.Item>
             <img
               style={styleImg}
@@ -20,6 +26,7 @@ class index extends Component {
               src={gede}
               alt="First slide"
             />
+
             <Carousel.Caption>
               <h3>First slide label</h3>
               <p>

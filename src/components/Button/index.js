@@ -6,7 +6,7 @@ export default class index extends Component {
     return (
       <div>
         <Button variant="primary" onClick={this.props.onClick}>
-          LOGIN
+          {this.props.title}
         </Button>
       </div>
     );

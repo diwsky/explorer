@@ -34,7 +34,9 @@ class Login extends React.Component {
           <div style={style}>
             <TextFields label={'Enter Email'} type={'email'} />
             <TextFields label={'Enter Password'} type={'password'} />
-            <Button onClick={this.onCLickLogin}> </Button>
+            <Button onClick={this.onCLickLogin} title={'Login'}>
+              {' '}
+            </Button>
           </div>
         </center>
       </div>
