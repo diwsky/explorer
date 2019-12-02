@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import TitleBar from '../../Components/TitleBar/';
+import TitleBar from '../../Components/TitleBar';
 import Cards from '../../Components/Cards/';
-import Carousel from '../../Components/Carousel/';
+import Carousel from '../../Components/Carousel';
 
 class Home extends Component {
   render() {
