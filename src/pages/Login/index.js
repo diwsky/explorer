@@ -1,52 +1,77 @@
-import React from 'react';
-import TextFields from '../../Components/TextFields/';
-import Button from '../../Components/Button/';
-import { Navbar } from 'react-bootstrap';
+import React, { useState } from 'react';
+import {
+  Navbar,
+  Button,
+  FormGroup,
+  FormControl,
+  FormLabel,
+} from 'react-bootstrap';
+import './index.css';
+import TitleBar from '../../Components/TitleBar';
 
-const style = {
-  marginTop: '10%',
-  width: '20%',
-};
+export default function Login(props) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-class Login extends React.Component {
-  onCLickLogin = () => {
-    console.log('onClickLogin...');
-    this.props.history.replace('/home');
-  };
-
-  render() {
-    return (
-      <div>
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="#home">
-            <img
-              alt=""
-              src="./img/explorer.jpg"
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-            />{' '}
-            Explorer!
-          </Navbar.Brand>
-        </Navbar>
-
-        <center>
-          <div style={style}>
-            <TextFields label={'Enter Email'} type={'email'} />
-            <TextFields label={'Enter Password'} type={'password'} />
-            <Button onClick={this.onCLickLogin} title={'Login'}>
-              {' '}
-            </Button>
-          </div>
-        </center>
-      </div>
-    );
+  function validateForm() {
+    return email.length > 0 && password.length > 0;
   }
 
-  goToHome = e => {
-    e.preventDefault();
-    window.location = '/home';
-  };
-}
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
 
-export default Login;
+  const onCLickLogin = () => {
+    console.log('onClickLogin...');
+    props.userHasAuthenticated(true);
+    props.history.replace('/home');
+  };
+
+  function handleLogin() {}
+
+  function handleLogout() {}
+
+  return (
+    <div>
+      <center>
+        <h3 style={{ marginTop: '30px' }}>Welcome to Explorer!</h3>
+      </center>
+
+      <div className="Login">
+        <form onSubmit={handleSubmit}>
+          <FormGroup controlId="email" bsSize="large">
+            <FormLabel>Email</FormLabel>
+            <FormControl
+              autoFocus
+              type="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
+          </FormGroup>
+          <FormGroup controlId="password" bsSize="large">
+            <FormLabel>Password</FormLabel>
+            <FormControl
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              type="password"
+            />
+          </FormGroup>
+          <Button
+            block
+            bsSize="large"
+            disabled={!validateForm()}
+            type="submit"
+            onClick={onCLickLogin}
+          >
+            Login
+          </Button>
+        </form>
+      </div>
+    </div>
+  );
+
+  // const goToHome = e => {
+  //   e.preventDefault();
+  //   window.location = '/home';
+  // };
+}

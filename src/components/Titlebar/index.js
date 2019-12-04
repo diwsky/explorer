@@ -2,24 +2,26 @@ import React, { Component } from 'react';
 import { Navbar, Nav, Form, FormControl } from 'react-bootstrap';
 import Button from '../Button';
 
-export default class index extends Component {
+export default class TitleBar extends Component {
+  onCLickButton = () => {
+    this.props.history.replace('/Login');
+  };
   render() {
     return (
       <div>
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand href="#home">Explorer!</Navbar.Brand>
           <Nav className="mr-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/book">Book a trip!</Nav.Link>
           </Nav>
           <Form inline>
-            <FormControl
-              type="text"
-              placeholder="Search"
-              className="mr-sm-2"
-            />
-            <Button variant="outline-info" title ={"Search"}>Search</Button>
+            <Button
+              variant="outline-info"
+              title={this.props.title}
+              onClick={this.onCLickButton}
+            ></Button>
           </Form>
         </Navbar>
       </div>

@@ -1,29 +1,19 @@
-import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link,
-} from 'react-router-dom';
-
-import Home from './pages/Home';
-import Items from './pages/Items';
-import Login from './pages/Login';
-
+import React, { useState } from 'react';
 import './App.css';
+import Routes from './Routes.js';
+import TitleBar from './Components/TitleBar';
+import { Route, Link, withRouter } from 'react-router-dom';
 
-function App() {
+function App(props) {
+  const [isAuthenticated, userHasAuthenticated] = useState(false);
+
   return (
     <div className="App">
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Login} />
-          <Route path="/home" component={Home} />
-          <Route path="/items" component={Items} />
-        </Switch>
-      </Router>
+      <TitleBar
+        title={isAuthenticated ? 'Logout' : 'Login'}
+      ></TitleBar>
+      <Routes appProps={{ isAuthenticated, userHasAuthenticated }} />
     </div>
   );
 }
-
 export default App;

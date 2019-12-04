@@ -1,15 +1,13 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { Carousel } from 'react-bootstrap';
-import gede from '../../img/gede.jpg';
-import slamet from '../../img/slamet.jpg';
-import semeru from '../../img/semeru.jpg';
 
 class index extends Component {
   render() {
     const styleImg = {
-      width: '50%',
+      width: '100%',
       flex: 1,
       height: '400px',
+      backgroundPosition: 'center',
     };
 
     return (
@@ -19,19 +17,20 @@ class index extends Component {
             height: '400px',
           }}
         >
-          <Carousel.Item>
+          <Carousel.Item style={styleImg}>
             <img
-              style={styleImg}
+              width="100%"
+              height="600px"
               className="d-block w-100"
-              src={gede}
+              src="/img/cover1.jpg"
               alt="First slide"
             />
 
             <Carousel.Caption>
-              <h3>First slide label</h3>
+              <h3>Experience the adventurous beauty of Indonesia</h3>
               <p>
-                Nulla vitae elit libero, a pharetra augue mollis
-                interdum.
+                Indonesia is the best place for all the hiker-lovers
+                and
               </p>
             </Carousel.Caption>
           </Carousel.Item>
@@ -39,7 +38,7 @@ class index extends Component {
             <img
               style={styleImg}
               className="d-block w-100"
-              src={slamet}
+              src="/img/cover2.jpg"
               alt="Third slide"
             />
 
@@ -55,7 +54,7 @@ class index extends Component {
             <img
               style={styleImg}
               className="d-block w-100"
-              src={semeru}
+              src="/img/cover3.jpg"
               alt="Third slide"
             />
 
