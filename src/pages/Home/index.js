@@ -12,6 +12,12 @@ const styleCard = {
 };
 
 class Home extends Component {
+  onClickButton = e => {
+    this.props.history.push({
+      pathname: '/book',
+      places: e,
+    });
+  };
   render() {
     return (
       <div>
@@ -29,6 +35,8 @@ class Home extends Component {
                 'Have the fascinating view of rain forest inside the heart of West Java'
               }
               img={'/img/gede.jpg'}
+              onAction={this.onClickButton}
+              places="Gede"
             ></Cards>
             <Cards
               title={'Mount Slamet'}
@@ -36,6 +44,8 @@ class Home extends Component {
                 'Need more adventure with steep trek and challanging trail? Slamet might suit you best!'
               }
               img={'/img/slamet.jpg'}
+              onAction={this.onClickButton}
+              places="Slamet"
             ></Cards>
             <Cards
               title={'Mount Semeru'}
@@ -43,6 +53,8 @@ class Home extends Component {
                 'Experience one of the 7 summit Indonesia, located in East Java. Seek the beauty of Ranu Kumbolo'
               }
               img={'/img/semeru.jpg'}
+              onAction={this.onClickButton}
+              places="Semeru"
             ></Cards>
           </Container>
         </center>

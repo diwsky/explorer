@@ -4,7 +4,7 @@ import Button from '../Button';
 
 export default class TitleBar extends Component {
   onCLickButton = () => {
-    this.props.history.replace('/Login');
+    alert('Do login');
   };
   render() {
     return (

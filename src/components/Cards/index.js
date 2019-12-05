@@ -10,7 +10,9 @@ export default class index extends Component {
           <Card.Body>
             <Card.Title>{this.props.title}</Card.Title>
             <Card.Text>{this.props.desc}</Card.Text>
-            <Button variant="primary">Book a seat!</Button>
+            <Button onClick={this.props.onAction} variant="primary">
+              Book a seat!
+            </Button>
           </Card.Body>
         </Card>
       </div>
