@@ -23,7 +23,12 @@ export default function Routes({ appProps }) {
           appProps={appProps}
         />
         <AppliedRoute
-          path="/book"
+          path="/book/:id"
+          component={Book}
+          appProps={appProps}
+        />
+        <AppliedRoute
+          path="/book/"
           component={Book}
           appProps={appProps}
         />

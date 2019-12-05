@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import TitleBar from '../../Components/TitleBar';
+import { Link } from 'react-router-bootstrap';
+import { Redirect } from 'react-router-dom';
 import Cards from '../../Components/Cards/';
 import Carousel from '../../Components/Carousel';
 import Container from '../../Components/Container';
@@ -12,14 +13,8 @@ const styleCard = {
 };
 
 class Home extends Component {
-  place = '';
+  place = '1';
 
-  onClickButton = e => {
-    this.props.history.push({
-      pathname: '/book',
-      places: 'test',
-    });
-  };
   render() {
     return (
       <div>
@@ -37,7 +32,7 @@ class Home extends Component {
                 'Have the fascinating view of rain forest inside the heart of West Java'
               }
               img={'/img/gede.jpg'}
-              onAction={this.onClickButton}
+              indexValue={1}
               places="Gede"
             ></Cards>
             <Cards
@@ -46,7 +41,7 @@ class Home extends Component {
                 'Need more adventure with steep trek and challanging trail? Slamet might suit you best!'
               }
               img={'/img/slamet.jpg'}
-              onAction={this.onClickButton}
+              indexValue={2}
               places="Slamet"
             ></Cards>
             <Cards
@@ -55,7 +50,7 @@ class Home extends Component {
                 'Experience one of the 7 summit Indonesia, located in East Java. Seek the beauty of Ranu Kumbolo'
               }
               img={'/img/semeru.jpg'}
-              onAction={this.onClickButton}
+              indexValue={3}
               places="Semeru"
             ></Cards>
           </Container>

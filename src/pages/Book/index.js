@@ -13,9 +13,40 @@ class Book extends Component {
     alert('submit!');
   };
 
+  onSelectedDestination = id => {
+    console.log(id);
+    switch (id) {
+      case '1':
+        return (
+          <Form.Control as="select">
+            <option selected>Gede</option>
+            <option>Slamet</option>
+            <option>Semeru</option>
+          </Form.Control>
+        );
+
+      case '2':
+        return (
+          <Form.Control as="select">
+            <option>Gede</option>
+            <option selected>Slamet</option>
+            <option>Semeru</option>
+          </Form.Control>
+        );
+      default:
+        return (
+          <Form.Control as="select">
+            <option>Gede</option>
+            <option>Slamet</option>
+            <option selected>Semeru</option>
+          </Form.Control>
+        );
+    }
+  };
+
   render() {
-    const data = this.props.places;
-    console.log(this.props.places);
+    const { id } = this.props.match.params;
+
     return (
       <div>
         <div
@@ -26,23 +57,19 @@ class Book extends Component {
           }}
         >
           <h1>Choose your adventure!</h1>
-          <p>please fill in your trip details down below</p>
+          <p>Please fill in your trip details down below</p>
 
-          <div>
+          <div style={{ display: 'flex', justifyContent: 'column' }}>
             {' '}
             <h4>Destination</h4>
+            <Form style={{ marginLeft: '20px' }}>
+              <Form.Row>
+                <Form.Group controlId="exampleForm.ControlSelect1">
+                  {this.onSelectedDestination(id)}
+                </Form.Group>
+              </Form.Row>
+            </Form>
           </div>
-          <DropdownButton
-            title={data === '' ? 'Select destination' : data}
-            style={{ marginBottom: '10px' }}
-          >
-            <Dropdown.Item eventKey="1">Gede</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item eventKey="2">Slamet</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item eventKey="3">Semeru</Dropdown.Item>
-            <Dropdown.Divider />
-          </DropdownButton>
           <Form>
             <Form.Row>
               <Form.Group as={Col} controlId="formGridEmail">
