@@ -14,6 +14,8 @@ class Book extends Component {
   };
 
   render() {
+    const data = this.props.places;
+    console.log(this.props.places);
     return (
       <div>
         <div
@@ -31,7 +33,7 @@ class Book extends Component {
             <h4>Destination</h4>
           </div>
           <DropdownButton
-            title={this.props.places}
+            title={data === '' ? 'Select destination' : data}
             style={{ marginBottom: '10px' }}
           >
             <Dropdown.Item eventKey="1">Gede</Dropdown.Item>

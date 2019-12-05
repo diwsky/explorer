@@ -12,10 +12,12 @@ const styleCard = {
 };
 
 class Home extends Component {
+  place = '';
+
   onClickButton = e => {
     this.props.history.push({
       pathname: '/book',
-      places: e,
+      places: 'test',
     });
   };
   render() {
